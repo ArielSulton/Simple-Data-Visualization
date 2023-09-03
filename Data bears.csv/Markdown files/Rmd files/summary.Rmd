@@ -1,0 +1,39 @@
+---
+title: "Summary"
+author: "Mochammad Ariel Sulton"
+date: "2023-09-03"
+output: pdf_document
+---
+
+
+```{r}
+data2 <- read.csv("bears.csv")
+
+age <- data2 [, 1]
+month <- data2 [, 2]
+sex <- data2 [, 3]
+headlen <- data2 [, 4]
+headwth <- data2 [, 5]
+neck <- data2 [, 6]
+length <- data2 [, 7]
+chest <- data2 [, 8]
+weight <- data2 [, 9]
+
+#summary
+summary(data2)
+
+Head.L <- summary(headlen)
+print(Head.L)
+
+Head.W <- summary(headwth)
+print(Head.W)
+
+Neck.G <- summary(neck)
+print(Neck.G)
+
+Chest.G <- summary(chest)
+print(Chest.G)
+
+Weights <- summary(weight)
+print(Weights)
+```

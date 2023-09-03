@@ -1,0 +1,29 @@
+---
+title: "Boxplot"
+author: "Mochammad Ariel Sulton"
+date: "2023-09-03"
+output: pdf_document
+---
+
+```{r}
+data1 <- read.csv("pulse.csv")
+
+active <- data1 [, 1]
+rest <- data1 [, 2]
+smoke <- data1 [, 3]
+gender <- data1 [, 4]
+exercise <- data1 [, 5]
+hgt <- data1 [, 6]
+wgt <- data1 [, 7]
+
+boxplot(hgt ~ gender, xlab = "Gender", ylab = "Height", main = "Boxplot - Height Based on Gender")
+boxplot(wgt ~ gender, xlab = "Gender", ylab = "Weight", main = "Boxplot - Weight Based on Gender")
+
+boxplot(active ~ smoke, xlab = "Smoke", ylab = "Activity", main = "Boxplot - Activity Based on Smoker")
+boxplot(active ~ gender, xlab = "Gender", ylab = "Activity", main = "Boxplot - Activity Based on Gender")
+boxplot(active ~ exercise, xlab = "Exercise", ylab = "Activity", main = "Boxplot - Activity Based on Exercises")
+
+boxplot(rest ~ smoke, xlab = "Smoke", ylab = "Rest", main = "Boxplot - Smoker Rest Time")
+boxplot(rest ~ gender, xlab = "Gender", ylab = "Rest", main = "Boxplot - Rest Time Based on Gender")
+boxplot(rest ~ exercise, xlab = "Exercise", ylab = "Rest", main = "Boxplot - Exerciser Rest Time")
+```

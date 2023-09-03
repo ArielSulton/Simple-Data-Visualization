@@ -1,0 +1,51 @@
+---
+title: "Histogram"
+author: "Mochammad Ariel Sulton"
+date: "2023-09-03"
+output: pdf_document
+---
+
+
+```{r}
+data1 <- read.csv("pulse.csv")
+
+active <- data1[, 1]
+rest <- data1[, 2]
+smoke <- data1[, 3]
+gender <- data1[, 4]
+exercise <- data1[, 5]
+hgt <- data1[, 6]
+wgt <- data1[, 7]
+
+hist(active[smoke == "1"], xlab = "Activity", col = "blue", border = "white", main = "Histogram - Smoker Activity")
+hist(active[smoke == "0"], xlab = "Activity", col = "red", border = "white", main = "Histogram - Non-smoker Activity")
+hist(active[gender == "1"], xlab = "Activity", col = "cyan", border = "black", main = "Histogram - Male Activity")
+hist(active[gender == "0"], xlab = "Activity", col = "pink", border = "black", main = "Histogram - Female Activity")
+hist(active[exercise == "1"], xlab = "Activity", col = "white", border = "black", main = "Histogram - Exerciser lvl 1 Activity")
+hist(active[exercise == "2"], xlab = "Activity", col = "grey", border = "black", main = "Histogram - Exerciser lvl 2 Activity")
+hist(active[exercise == "3"], xlab = "Activity", col = "black", border = "white", main = "Histogram - Exerciser lvl 3 Activity")
+
+hist(rest[smoke == "1"], xlab = "Rest Time", col = "blue", border = "white", main = "Histogram - Smoker Rest Time")
+hist(rest[smoke == "0"], xlab = "Rest Time", col = "red", border = "white", main = "Histogram - Non-smoker Rest Time")
+hist(rest[gender == "1"], xlab = "Rest Time", col = "cyan", border = "black", main = "Histogram - Male Rest Time")
+hist(rest[gender == "0"], xlab = "Rest Time", col = "pink", border = "black", main = "Histogram - Female Rest Time")
+hist(rest[exercise == "1"], xlab = "Rest Time", col = "white", border = "black", main = "Histogram - Exerciser lvl 1 Rest Time")
+hist(rest[exercise == "2"], xlab = "Rest Time", col = "grey", border = "black", main = "Histogram - Exerciser lvl 2 Rest Time")
+hist(rest[exercise == "3"], xlab = "Rest Time", col = "black", border = "white", main = "Histogram - Exerciser lvl 3 Rest Time")
+
+hist(hgt[smoke == "1"], xlab = "Height", col = "blue", border = "white", main = "Histogram - Smoker Heights")
+hist(hgt[smoke == "0"], xlab = "Height", col = "red", border = "white", main = "Histogram - Non-smoker Heights")
+hist(hgt[gender == "1"], xlab = "Height", col = "cyan", border = "black", main = "Histogram - Male Heights")
+hist(hgt[gender == "0"], xlab = "Height", col = "pink", border = "black", main = "Histogram - Female Heights")
+hist(hgt[exercise == "1"], xlab = "Height", col = "white", border = "black", main = "Histogram - Exerciser lvl 1 Heights")
+hist(hgt[exercise == "2"], xlab = "Height", col = "grey", border = "black", main = "Histogram - Exerciser lvl 2 Heights")
+hist(hgt[exercise == "3"], xlab = "Height", col = "black", border = "white", main = "Histogram - Exerciser lvl 3 Heights")
+
+hist(wgt[smoke == "1"], xlab = "Weight", col = "blue", border = "white", main = "Histogram - Smoker Weights")
+hist(wgt[smoke == "0"], xlab = "Weight", col = "red", border = "white", main = "Histogram - Non-smoker Weights")
+hist(wgt[gender == "1"], xlab = "Weight", col = "cyan", border = "black", main = "Histogram - Male Weights")
+hist(wgt[gender == "0"], xlab = "Weight", col = "pink", border = "black", main = "Histogram - Female Weights")
+hist(wgt[exercise == "1"], xlab = "Weight", col = "white", border = "black", main = "Histogram - Exerciser lvl 1 Weights")
+hist(wgt[exercise == "2"], xlab = "Weight", col = "grey", border = "black", main = "Histogram - Exerciser lvl 2 Weights")
+hist(wgt[exercise == "3"], xlab = "Weight", col = "black", border = "white", main = "Histogram - Exerciser lvl 3 Weights")
+```

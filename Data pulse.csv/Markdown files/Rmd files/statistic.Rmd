@@ -1,0 +1,155 @@
+---
+title: "Statistic"
+author: "Mochammad Ariel Sulton"
+date: "2023-09-03"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r}
+data1 <- read.csv("pulse.csv")
+
+active <- data1[, 1]
+rest <- data1[, 2]
+smoke <- data1[, 3]
+gender <- data1[, 4]
+exercise <- data1[, 5]
+hgt <- data1[, 6]
+wgt <- data1[, 7]
+
+#mean
+mean_hgt <- by(hgt, gender, mean)
+mean_wgt <- by(wgt, gender, mean)
+print(mean_hgt)
+print(mean_wgt)
+
+mean_activeS <- by(active, smoke, mean)
+mean_activeG <- by(active, gender, mean)
+mean_activeE <- by(active, exercise, mean)
+print(mean_activeS)
+print(mean_activeG)
+print(mean_activeE)
+
+mean_restS <- by(rest, smoke, mean)
+mean_restG <- by(rest, gender, mean)
+mean_restE <- by(rest, exercise, mean)
+print(mean_restS)
+print(mean_restG)
+print(mean_restE)
+
+#median
+med_hgt <- by(hgt, gender, median)
+med_wgt <- by(wgt, gender, median)
+print(med_hgt)
+print(med_wgt)
+
+med_activeS <- by(active, smoke, median)
+med_activeG <- by(active, gender, median)
+med_activeE <- by(active, exercise, median)
+print(med_activeS)
+print(med_activeG)
+print(med_activeE)
+
+med_restS <- by(rest, smoke, median)
+med_restG <- by(rest, gender, median)
+med_restE <- by(rest, exercise, median)
+print(med_restS)
+print(med_restG)
+print(med_restE)
+
+#variansi
+var_hgt <- by(hgt, gender, var)
+var_wgt <- by(wgt, gender, var)
+print(var_hgt)
+print(var_wgt)
+
+var_activeS <- by(active, smoke, var)
+var_activeG <- by(active, gender, var)
+var_activeE <- by(active, exercise, var)
+print(var_activeS)
+print(var_activeG)
+print(var_activeE)
+
+var_restS <- by(rest, smoke, var)
+var_restG <- by(rest, gender, var)
+var_restE <- by(rest, exercise, var)
+print(var_restS)
+print(var_restG)
+print(var_restE)
+
+#QR
+Q1_hgt <- by(hgt, gender, function(x) quantile(x, 0.25))
+Q3_hgt <- by(hgt, gender, function(x) quantile(x, 0.75))
+QR_hgt <- Q3_hgt - Q1_hgt
+print(QR_hgt)
+
+Q1_wgt <- by(wgt, gender, function(x) quantile(x, 0.25))
+Q3_wgt <- by(wgt, gender, function(x) quantile(x, 0.75))
+QR_wgt <- Q3_wgt - Q1_wgt
+print(QR_wgt)
+
+Q1_activeS <- by(active, smoke, function(x) quantile(x, 0.25))
+Q3_activeS <- by(active, smoke, function(x) quantile(x, 0.75))
+QR_activeS <- Q3_activeS - Q1_activeS
+print(QR_activeS)
+
+Q1_activeG <- by(active, gender, function(x) quantile(x, 0.25))
+Q3_activeG <- by(active, gender, function(x) quantile(x, 0.75))
+QR_activeG <- Q3_activeG - Q1_activeG
+print(QR_activeG)
+
+Q1_activeE <- by(active, exercise, function(x) quantile(x, 0.25))
+Q3_activeE <- by(active, exercise, function(x) quantile(x, 0.75))
+QR_activeE <- Q3_activeE - Q1_activeE
+print(QR_activeE)
+
+Q1_restS <- by(rest, smoke, function(x) quantile(x, 0.25))
+Q3_restS <- by(rest, smoke, function(x) quantile(x, 0.75))
+QR_restS <- Q3_restS - Q1_restS
+print(QR_restS)
+
+Q1_restG <- by(rest, gender, function(x) quantile(x, 0.25))
+Q3_restG <- by(rest, gender, function(x) quantile(x, 0.75))
+QR_restG <- Q3_restG - Q1_restG
+print(QR_restG)
+
+Q1_restE <- by(rest, exercise, function(x) quantile(x, 0.25))
+Q3_restE <- by(rest, exercise, function(x) quantile(x, 0.75))
+QR_restE <- Q3_restE - Q1_restE
+print(QR_restE)
+
+#koefinsi variasi
+
+#kv <- function(x) {
+#  cv <- sd(x) / mean(x) * 100
+#  return(cv)
+#}
+
+cv_hgt <- by(hgt, gender, function(x) {sd(x) / mean(x) * 100})
+cv_wgt <- by(wgt, gender, function(x) {sd(x) / mean(x) * 100})
+print(cv_hgt)
+print(cv_wgt)
+
+cv_activeS <- by(active, gender, function(x) {sd(x) / mean(x) * 100})
+cv_activeG <- by(active, gender, function(x) {sd(x) / mean(x) * 100})
+cv_activeE <- by(active, gender, function(x) {sd(x) / mean(x) * 100})
+print(cv_activeS)
+print(cv_activeG)
+print(cv_activeE)
+
+cv_restS <- by(rest, gender, function(x) {sd(x) / mean(x) * 100})
+cv_restG <- by(rest, gender, function(x) {sd(x) / mean(x) * 100})
+cv_restE <- by(rest, gender, function(x) {sd(x) / mean(x) * 100})
+print(cv_restS)
+print(cv_restG)
+print(cv_restE)
+```

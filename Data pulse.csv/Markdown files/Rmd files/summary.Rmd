@@ -1,0 +1,41 @@
+---
+title: "Summary"
+author: "Mochammad Ariel Sulton"
+date: "2023-09-03"
+output: pdf_document
+---
+
+
+```{r}
+data1 <- read.csv("pulse.csv")
+
+active <- data1[, 1]
+rest <- data1[, 2]
+smoke <- data1[, 3]
+gender <- data1[, 4]
+exercise <- data1[, 5]
+hgt <- data1[, 6]
+wgt <- data1[, 7]
+
+#1a
+height <- by(hgt, gender, summary)
+print(height)
+
+weight <- by(wgt, gender, summary)
+print(weight)
+
+#2a
+activeS <- by(active, smoke, summary)
+activeG <- by(active, gender, summary)
+activeE <- by(active, exercise, summary)
+print(activeS)
+print(activeG)
+print(activeE)
+
+restS <- by(rest, smoke, summary)
+restG <- by(rest, gender, summary)
+restE <- by(rest, exercise, summary)
+print(restS)
+print(restG)
+print(restE)
+```

@@ -1,0 +1,28 @@
+---
+title: "Matrix Plot"
+author: "Mochammad Ariel Sulton"
+date: "2023-09-03"
+output: pdf_document
+---
+
+
+```{r}
+data2 <- read.csv("bears.csv")
+
+age <- data2 [, 1]
+month <- data2 [, 2]
+sex <- data2 [, 3]
+headlen <- data2 [, 4]
+headwth <- data2 [, 5]
+neck <- data2 [, 6]
+length <- data2 [, 7]
+chest <- data2 [, 8]
+weight <- data2 [, 9]
+
+#matrix plot
+plot(x = headlen, xlim = c(0,55), ylim = c(8,18), main = "Matrix Plot - Head.L Variable")
+plot(x = headwth, xlim = c(0,55), ylim = c(4,10), main = "Matrix Plot - Head.W Variable")
+plot(x = neck, xlim = c(0,55), ylim = c(10,32), main = "Matrix Plot - Neck.G Variable")
+plot(x = chest, xlim = c(0,55),  ylim = c(19,55), main = "Matrix Plot - Chest.G Variable")
+plot(x = weight, xlim = c(0,55), ylim = c(26,534), main = "Matrix Plot - Weight Variable")
+```
